@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+services:
+    - required
+
+before_install:
+    - docker build -t navnit-sarda/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true USERNAME/docker-react npm run test
+
+
